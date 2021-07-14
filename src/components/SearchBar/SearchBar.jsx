@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { toast } from "react-toastify";
+import {onShowInfoNotification} from "../../services/notification"
 import {Header, SearchForm, SearchFormButton, SearchFormButtonLabel, SearchFormInput} from "./SearchBar.styled"
 
 export default class SearchBar extends Component {
@@ -16,7 +16,7 @@ export default class SearchBar extends Component {
         e.preventDefault();
 
         if (this.state.searchQuery.trim() === "") {
-            toast.error('Please try again');
+            onShowInfoNotification()
             return;
         }
 
